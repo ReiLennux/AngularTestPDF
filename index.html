@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Generar PDF desde Input</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <!-- Se importan las bibliotecas necesarias: AngularJS y pdfmake -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.2/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.68/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.68/vfs_fonts.js"></script>
+    <!-- Se importa el archivo de script 'app.js' -->
+    <script src="app.js"></script>
+</head>
+<body ng-controller="PdfController">
+    <!-- Se define un controlador Angular llamado 'PdfController' para manejar la lógica de la página -->
+    <div class="container">
+        <h1>Generación de PDFs</h1>
+        <!-- Se crea un campo de entrada de texto que enlaza su valor con la variable 'inputText' del controlador -->
+        <input type="text" ng-model="inputText" ng-change="updateDiv(inputText)" placeholder="Ingresa algún texto...">
+        <!-- Se muestra el contenido del campo de entrada de texto -->
+        <div class="output">{{inputText}}</div>
+        <!-- Se crea un botón que llama a la función 'generatePdf' cuando se hace clic -->
+        <button ng-click="generatePdf()">Generar PDF</button>
+    </div>
+</body>
+</html>
